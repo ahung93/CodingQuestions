@@ -46,9 +46,10 @@ bool isUniq(string word){
 			charHash[(int) word[i]] = true;
 		}
 		else{
+			delete [] charHash;
 			return false;
 		}
 	}
-
+	delete [] charHash;
 	return true;
 }
