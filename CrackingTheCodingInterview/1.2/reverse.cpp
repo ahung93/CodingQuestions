@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 struct charNode {
 	char c;
@@ -7,22 +10,40 @@ struct charNode {
 
 void reverse(char* str);
 
+int main(int argc, char **argv){
+  reverse(argv[1]);
+  cout << argv[1] << endl;
 
-/* Implement a linked list of characters.
-**  When the list reaches a nul terminated value,
-**  stop there and traverse backwards to verse string.
+  return 0;
+}
+
+/* 
+**  Figure out the length of the array.
+**  Go through it one more time and switching the places around
 **
-**  Memory: O(n)
+**  Memory: O(1)
 **  Time:   O(n)
 */
 void reverse(char* str){
-  int length = 0;
+  size_t length = 0;
+  size_t switchLength = 0;
   charNode *top;
-  int i = 0;
+  size_t i = 0;
+  char charTemp;
   while(str[i] != '\0'){
-    *top = new charNode;
-    top->c = str[i];
-    top->next = 
   	length++;
+    i++;
+  }
+
+  if((length & 1) == 1){
+    switchLength = (length - 1) / 2;
+  } else {
+    switchLength = length / 2;
+  }
+
+  for(i = 0; i < switchLength; i++){
+    charTemp = str[i];
+    str[i] = str[length-1-i];
+    str[length-1-i] = charTemp;
   }
 }
