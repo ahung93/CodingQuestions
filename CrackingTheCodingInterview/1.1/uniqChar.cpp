@@ -51,5 +51,6 @@ bool isUniq(string word){
 		}
 	}
 	delete [] charHash;
+	charHash = NULL;
 	return true;
 }
