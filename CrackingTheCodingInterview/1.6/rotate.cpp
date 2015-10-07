@@ -14,13 +14,9 @@ void rotate(int **array, int size){
 			int yTotal = size - 1 - x;
 			int xTotal = size - 1 - x;
 			int temp = array[x][y];
-			cout << "[" << x << "][" << y << "] = [" << xTotal-y+x << "][" << x << "]" << endl;
-			cout << "[" << xTotal-y+x << "][" << x << "] = [" << xTotal << "][" << yTotal-y+x << "]" << endl;
-			cout << "[" << xTotal << "][" << yTotal-y+x << "] = [" << y << "][" << yTotal << "]" << endl;
-			cout << "[" << y << "][" << yTotal << "] = [" << x << "][" << y << "]" << endl;
-			array[x][y] = array[xTotal-y][x];
-			array[xTotal-y][x] = array[xTotal][yTotal-y];
-			array[xTotal][yTotal-y] = array[y][yTotal];
+			array[x][y] = array[xTotal-y+x][x];
+			array[xTotal-y+x][x] = array[xTotal][yTotal-y+x];
+			array[xTotal][yTotal-y+x] = array[y][yTotal];
 			array[y][yTotal] = temp;
 		}
 	}
@@ -68,7 +64,7 @@ int main(void){
 
 	for(int i=0; i<2; i++){
 		for(int j=0; j<2; j++){
-			oddArray[i][j] = i*10+j;
+			smallEven[i][j] = i*10+j;
 		}
 	}
 
@@ -100,7 +96,7 @@ int main(void){
 	cout << "Printing smallEven" << endl;
 	for(int i = 0; i < 2; i++){
 		for(int j = 0; j < 2; j++){
-			cout << oddArray[i][j];
+			cout << smallEven[i][j];
 		}
 		cout << endl;
 	}
